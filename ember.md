@@ -2,7 +2,88 @@
 # ember
 ###
 
+ユニーク
+
 ---
+
+`ember-auto-import`のエラーは、Ember.jsプロジェクトで`index.html`ファイルに適切なスクリプトタグが見つからない場合に発生します。Ember.jsアプリケーションの構造では、カスタムHTMLファイルを`public`ディレクトリに直接配置するのではなく、アプリケーションテンプレート内で管理する必要があります。
+
+ここでは、Ember.jsアプリケーション内で静的HTMLコンテンツを適切に表示する方法を説明します。
+
+### Ember.jsアプリケーション内で静的HTMLを表示する方法
+
+1. **HTMLコンテンツをテンプレートに変換**:
+   まず、`public/index.html`の内容をEmber.jsのテンプレートに移動します。これにより、Ember.jsのテンプレートエンジンで処理されるようになります。
+
+2. **テンプレートの作成**:
+   `app/templates/application.hbs`ファイルにHTMLコンテンツを追加します。
+
+   ```html
+   {{! app/templates/application.hbs }}
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Simple HTML Page</title>
+   </head>
+   <body>
+       <h1>Hello, World!</h1>
+       <p>This is a simple HTML page hosted by Ember.js.</p>
+   </body>
+   </html>
+   ```
+
+3. **アセットの配置**:
+   `public`ディレクトリは静的アセットを配置する場所として使用されますが、HTMLファイルそのものではなく、画像やスタイルシート、JavaScriptファイルなどの静的アセットを配置するために使用します。
+
+4. **開発サーバーの起動**:
+   アプリケーションのディレクトリに移動し、開発サーバーを起動します。
+
+   ```bash
+   cd my-ember-app
+   ember serve
+   ```
+
+   ブラウザで`http://localhost:4200`にアクセスすると、上記のHTMLコンテンツが表示されます。
+
+### Ember.jsのルーティングを利用する
+
+Ember.jsでは、特定のURLパスに応じて異なるテンプレートを表示するためにルーティングを利用します。ここでは、特定のパス（例えば、`/custom`）でHTMLコンテンツを表示する方法を説明します。
+
+1. **ルートの作成**:
+   新しいルートを作成します。
+
+   ```bash
+   ember generate route custom
+   ```
+
+2. **テンプレートの編集**:
+   `app/templates/custom.hbs`にHTMLコンテンツを追加します。
+
+   ```html
+   {{! app/templates/custom.hbs }}
+
+   <h1>Hello, World!</h1>
+   <p>This is a simple HTML page hosted by Ember.js.</p>
+   ```
+
+3. **ルートの設定**:
+   ルートが自動的に設定されるため、特に変更を加える必要はありませんが、ルートのファイルは次のようになっています。
+
+   ```javascript
+   // app/routes/custom.js
+   import Route from '@ember/routing/route';
+
+   export default class CustomRoute extends Route {
+   }
+   ```
+
+4. **開発サーバーの起動**:
+   再度開発サーバーを起動し、ブラウザで`http://localhost:4200/custom`にアクセスすると、新しいルートに対応するHTMLコンテンツが表示されます。
+
+これで、Ember.jsアプリケーション内で静的HTMLコンテンツを適切に表示できるようになります。`public`ディレクトリに直接HTMLファイルを配置するのではなく、Ember.jsのテンプレートやルーティングを利用してコンテンツを管理することが推奨されます。
 
 ---
 
