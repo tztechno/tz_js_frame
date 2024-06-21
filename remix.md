@@ -13,7 +13,7 @@ Remixは、Reactフレームワークを基盤とした、新しいタイプのW
 ### Remixのインストール手順
 
 1. **Node.jsとnpmのインストール**:
-   - Remixを使用するためには、まずNode.jsとnpm（Node Package Manager）が必要です。公式のNode.jsウェブサイト（https://nodejs.org/）から、最新バージョンのNode.jsをダウンロードしてインストールします。npmはNode.jsと共にインストールされます。
+   - Remixを使用するためには、まずNode.jsとnpm（Node Package Manager）が必要です。公式のNode.jsウェブサイト（https://nodejs.org/） から、最新バージョンのNode.jsをダウンロードしてインストールします。npmはNode.jsと共にインストールされます。
 
 2. **Remix CLIのインストール**:
    - ターミナルまたはコマンドプロンプトを開き、次のコマンドを実行してRemix CLIをグローバルにインストールします。
